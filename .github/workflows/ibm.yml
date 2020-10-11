@@ -37,6 +37,8 @@ jobs:
         ./IBM_Cloud_CLI/ibmcloud cf install
     - name: Restart IBM Cloud
       env:
+        IBM_CF_API: https://api.eu-gb.cf.cloud.ibm.com
+        IBM_CF_APP_MEM: 256M
         IBM_APP_NAME: ${{ secrets.IBM_APP_NAME }}
       run: |
         ./IBM_Cloud_CLI/ibmcloud cf restart "$IBM_APP_NAME"
